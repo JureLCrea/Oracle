@@ -1,0 +1,33 @@
+# Create new user
+sqlplus system/welcome@orcl
+create user jure identified by geslo1;
+
+
+# Grant roles (connect, resource and rqadmin) to user
+sqlplus system/welcome@orcl
+grant connec, resource, rqadmin to jure;
+
+
+# Grant user jure privileges on tablespace USERS
+alter user jure quota unlimited on USERS;
+
+# Revoke dba role from user
+revoke dba from jure;
+
+
+
+
+#### OSTALE POMEMBNE STVARI ####
+- shema je isto kot user v Oracle
+- pri uvozu podatkov je EXTERNAL TABLE najhitrejša metoda
+- če je nekdo admin role, lahko vlogo podeljuje naprej
+- v SQL Developerju pri ustvarjanju TABLESPACE-a lahko izberemo FILE TYPE: Big
+  za velike količine podatkov, npr. za NLB
+- pri ročnem ustvarjanju tabele (ali včasih pri spremembi tabel) je 
+  potrebno narediti še commit
+
+
+
+
+
+
