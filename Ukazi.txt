@@ -1,4 +1,4 @@
-# Create new user
+﻿# Create new user jure
 sqlplus system/welcome@orcl
 create user jure identified by geslo1;
 
